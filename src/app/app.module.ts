@@ -12,13 +12,15 @@ import { UjRendelesComponent } from './Part/uj-rendeles/uj-rendeles.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Enviroments } from './enviroments';
 import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './Pipe/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     AdatokComponent,
-    UjRendelesComponent
+    UjRendelesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

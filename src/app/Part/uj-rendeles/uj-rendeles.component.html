@@ -8,13 +8,13 @@
           <input [(ngModel)]="ujMegrendeles.megrendelo" type="text" class="form-control" id="exampleFormControlInput1">
         </div>
         <!-- {{ujTetel|json}} -->
-        <div *ngIf="ujMegrendeles.rendeles">
+        <div *ngIf="ujMegrendeles.rendeles" class="my-4">
             <div class="row">
                 <div class="col">Növény</div>
                 <div class="col">Darab szám</div>
             </div>
             <div *ngFor="let tetel of ujMegrendeles.rendeles" class="row">
-                <div class="col">{{tetel.novenyKey}}</div>
+                <div class="col">{{novenyek[keres(tetel.novenyKey)].megnevezes}}</div>
                 <div class="col">{{tetel.db}}</div>
             </div>
         </div>

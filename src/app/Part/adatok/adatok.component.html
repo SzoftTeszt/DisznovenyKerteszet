@@ -8,7 +8,7 @@
         </div>
     </div>
     
-    {{ujNoveny|json}}
+    <!-- {{ujNoveny|json}} -->
     <div class="row my-4">
         <div *ngFor="let oszlop of oszlopok" class="col">
             <input [(ngModel)]="ujNoveny[oszlop]" type="text" class="form-control" >
@@ -29,3 +29,24 @@
     </div>
 </div>
 
+<!-- {{kereses}} -->
+<div class="rendelesek my-3">
+    <div class="input-group mb-3">
+        <input [(ngModel)]="kereses" type="text" class="form-control"  aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">Keresés</span>
+        </div>
+      </div>
+
+    <div *ngFor="let megrendeles of megrendelesek|filter:kereses" class="div my-2">
+        <div class="col">{{megrendeles.megrendelo}}</div>
+        <div *ngFor="let tetel of megrendeles.rendeles" class="row">           
+            <div class="col">{{novenyek[keres(tetel.novenyKey)].megnevezes}}</div>
+            <div class="col">{{tetel.db}} db</div>
+            <div class="col">{{novenyek[keres(tetel.novenyKey)].ar*tetel.db}} Ft</div>
+        </div>
+        <div class="div">{{osszead(megrendeles.rendeles)}} Ft</div>
+        <button [disabled]="megrendeles.statusz=='Teljesítve'" (click)="teljesitve(megrendeles)" type="button" class="btn btn-primary">Teljesítve</button>
+    </div>
+
+</div>

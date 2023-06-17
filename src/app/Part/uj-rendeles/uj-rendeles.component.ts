@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
+import { Noveny } from 'src/app/Model/noveny';
 import { BaseService } from 'src/app/Service/base.service';
 
 @Component({
@@ -25,6 +26,7 @@ export class UjRendelesComponent {
   }
 
   addMegrendeles(body:any){
+    body.statusz="Folyamatban";
     this.base.addMegrendeles(body).then( ()=>
         this.router.navigate(['/adatok'])
     )
@@ -36,8 +38,13 @@ export class UjRendelesComponent {
     const tetel:any={};
     tetel.novenyKey=body.novenyKey;
     tetel.db=body.db;
-    tetel.statusz="Folyamatban";
+    
     this.ujMegrendeles.rendeles.push(tetel);
     this.ujTetel={};
+  }
+
+  keres(key:string)  {
+    return (this.novenyek as Noveny[]).
+            findIndex( (adat) =>adat.key==key);
   }
 }

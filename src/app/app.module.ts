@@ -11,6 +11,7 @@ import { AdatokComponent } from './Part/adatok/adatok.component';
 import { UjRendelesComponent } from './Part/uj-rendeles/uj-rendeles.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Enviroments } from './enviroments';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { Enviroments } from './enviroments';
     AppRoutingModule,
     NgbModule,
     AngularFireModule.initializeApp(Enviroments.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

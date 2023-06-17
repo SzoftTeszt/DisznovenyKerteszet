@@ -8,10 +8,20 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
           <li class="nav-item">
-            <a class="nav-link" >Adatok</a>
+            <a class="nav-link" 
+            routerLink="/adatok"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}"
+            
+            >Adatok</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" >Rendelés</a>
+            <a class="nav-link"
+            routerLink="/ujrendeles"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">
+            
+            Rendelés</a>
           </li>
        
         </ul>

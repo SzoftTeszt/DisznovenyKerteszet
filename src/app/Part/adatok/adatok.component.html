@@ -1,1 +1,31 @@
-<p>adatok works!</p>
+<div class="novenyek">
+    <div class="row my-2">
+        <div *ngFor="let oszlop of oszlopok" class="col">
+            {{oszlop}}
+        </div>
+        <div class="col">
+            Műveletek
+        </div>
+    </div>
+    
+    {{ujNoveny|json}}
+    <div class="row my-4">
+        <div *ngFor="let oszlop of oszlopok" class="col">
+            <input [(ngModel)]="ujNoveny[oszlop]" type="text" class="form-control" >
+        </div>
+        <div class="col">
+            <button (click)="add()" type="button" class="btn btn-primary">Felvesz</button>
+        </div>
+    </div>
+    
+    <div *ngFor="let noveny of novenyek" class="row my-1">
+        <div *ngFor="let oszlop of oszlopok" class="col">
+            <input [(ngModel)]="noveny[oszlop]" type="text" class="form-control" >
+        </div>
+        <div class="col">
+            <button (click)="update(noveny)" type="button" class="btn btn-primary">Módosit</button>
+            <button (click)="delete(noveny)" type="button" class="btn btn-primary">Törlés</button>
+        </div>
+    </div>
+</div>
+

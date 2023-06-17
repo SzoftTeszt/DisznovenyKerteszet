@@ -1,1 +1,29 @@
-<p>uj-rendeles works!</p>
+<div class="card">
+    {{ujMegrendeles|json}}
+    <div class="card-body">
+      <h5 class="card-title">Új megrendelés felvétele</h5>
+
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Megrendelő</label>
+          <input [(ngModel)]="ujMegrendeles.megrendelo" type="text" class="form-control" id="exampleFormControlInput1">
+        </div>
+        {{ujTetel|json}}
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Növény</label>
+          <select [(ngModel)]="ujTetel.novenyKey" class="form-control" id="exampleFormControlSelect1">
+            <option *ngFor="let noveny of novenyek" [value]="noveny.key">
+                {{noveny.megnevezes}}
+            </option>
+          
+          </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Darab</label>
+            <input [(ngModel)]="ujTetel.db" type="number" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <button (click)="addTetel(ujTetel)" type="button" class="btn btn-primary">+</button>
+       
+     
+    </div>
+  </div>

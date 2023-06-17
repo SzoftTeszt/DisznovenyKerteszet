@@ -1,5 +1,5 @@
 <div class="card">
-    {{ujMegrendeles|json}}
+    <!-- {{ujMegrendeles|json}} -->
     <div class="card-body">
       <h5 class="card-title">Új megrendelés felvétele</h5>
 
@@ -7,7 +7,18 @@
           <label for="exampleFormControlInput1">Megrendelő</label>
           <input [(ngModel)]="ujMegrendeles.megrendelo" type="text" class="form-control" id="exampleFormControlInput1">
         </div>
-        {{ujTetel|json}}
+        <!-- {{ujTetel|json}} -->
+        <div *ngIf="ujMegrendeles.rendeles">
+            <div class="row">
+                <div class="col">Növény</div>
+                <div class="col">Darab szám</div>
+            </div>
+            <div *ngFor="let tetel of ujMegrendeles.rendeles" class="row">
+                <div class="col">{{tetel.novenyKey}}</div>
+                <div class="col">{{tetel.db}}</div>
+            </div>
+        </div>
+
         <div class="form-group">
           <label for="exampleFormControlSelect1">Növény</label>
           <select [(ngModel)]="ujTetel.novenyKey" class="form-control" id="exampleFormControlSelect1">
@@ -23,6 +34,7 @@
             <input [(ngModel)]="ujTetel.db" type="number" class="form-control" id="exampleFormControlInput1">
         </div>
         <button (click)="addTetel(ujTetel)" type="button" class="btn btn-primary">+</button>
+        <button (click)="addMegrendeles(ujMegrendeles)" type="button" class="btn btn-primary">Rendelés Elküldése</button>
        
      
     </div>
